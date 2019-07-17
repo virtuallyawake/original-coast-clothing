@@ -108,14 +108,14 @@ module.exports = {
   },
 
   checkEnvVariables: function() {
-    if (config.error) {
+      /*    if (config.error) {
       if (config.error.code == "ENOENT") {
         console.log("WARNING: Your .env file is missing.");
       } else {
         console.dir(config.error);
       }
       process.exit(1);
-    }
+      }*/
 
     const parsedVariables = config.parsed;
     var keys = [
