@@ -194,6 +194,8 @@ module.exports = class Receive {
     } else if (payload.includes("CSAT")) {
       response = Survey.handlePayload(payload);
     } else {
+	console.log("DEFAULT RESPONSE FOR: ");
+	console.dir(payload);
       response = {
         text: `This is a default postback message for payload: ${payload}!`
       };
