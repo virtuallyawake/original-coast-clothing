@@ -15,7 +15,6 @@ const Curation = require("./curation"),
   Response = require("./response"),
   Care = require("./care"),
   Survey = require("./survey"),
-//  ChatPlugin = require("./chat-plugin"),
   GraphAPi = require("./graph-api"),
   i18n = require("../i18n.config");
 
@@ -195,8 +194,6 @@ module.exports = class Receive {
     } else if (payload.includes("CSAT")) {
       response = Survey.handlePayload(payload);
     } else if (payload.includes("OCWEBSITE-CHAT-PLUGIN")) {
-	console.log("CHAT PLUGIN PAYLOAD");
-	// response = ChatPlugin.handlePayload(payload);
       response = [
 	Response.genText(i18n.__("chat_plugin.prompt")),
         Response.genText(i18n.__("get_started.guidance")),
@@ -206,8 +203,8 @@ module.exports = class Receive {
             payload: "CURATION"
           },
           {
-            title: i18n.__("care.order"),
-            payload: "CARE_ORDER"
+            title: i18n.__("order.account"),
+            payload: "LINK_ORDER"
           },
           {
             title: i18n.__("menu.help"),
@@ -217,8 +214,6 @@ module.exports = class Receive {
       ];
 
     } else {
-	console.log("DEFAULT RESPONSE FOR: ");
-	console.dir(payload);
       response = {
         text: `This is a default postback message for payload: ${payload}!`
       };
