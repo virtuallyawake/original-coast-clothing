@@ -15,6 +15,7 @@ const Curation = require("./curation"),
   Response = require("./response"),
   Care = require("./care"),
   Survey = require("./survey"),
+//  ChatPlugin = require("./chat-plugin"),
   GraphAPi = require("./graph-api"),
   i18n = require("../i18n.config");
 
@@ -193,6 +194,28 @@ module.exports = class Receive {
       response = Order.handlePayload(payload);
     } else if (payload.includes("CSAT")) {
       response = Survey.handlePayload(payload);
+    } else if (payload.includes("OCWEBSITE-CHAT-PLUGIN")) {
+	console.log("CHAT PLUGIN PAYLOAD");
+	// response = ChatPlugin.handlePayload(payload);
+      response = [
+        Response.genText(
+          i18n.__("fallback.any", {
+            message: this.webhookEvent.message.text
+          })
+        ),
+        Response.genText(i18n.__("get_started.guidance")),
+        Response.genQuickReply(i18n.__("get_started.help"), [
+          {
+            title: i18n.__("menu.suggestion"),
+            payload: "CURATION"
+          },
+          {
+            title: i18n.__("menu.help"),
+            payload: "CARE_HELP"
+          }
+        ])
+      ];
+
     } else {
 	console.log("DEFAULT RESPONSE FOR: ");
 	console.dir(payload);
