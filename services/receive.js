@@ -198,9 +198,7 @@ module.exports = class Receive {
 	console.log("CHAT PLUGIN PAYLOAD");
 	// response = ChatPlugin.handlePayload(payload);
       response = [
-        Response.genText(
-          i18n.__("chat_plugin.prompt")
-        ),
+		  //        Response.genText(i18n.__("chat_plugin.prompt")),
         Response.genText(i18n.__("get_started.guidance")),
         Response.genQuickReply(i18n.__("get_started.help"), [
           {
@@ -219,7 +217,6 @@ module.exports = class Receive {
               title: i18n.__("care.billing"),
               payload: "CARE_BILLING"
             },
-
           {
             title: i18n.__("menu.help"),
             payload: "CARE_HELP"

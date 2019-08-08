@@ -65,7 +65,7 @@
     "suggestion": "Your suggestion has been recorded for future review by the team. If this is something we need to get back to you right now just comment \"help\""
   },
   "chat_plugin": {
-    "prompt": "Thanks for visiting our store, be sure to check out all the great styles we have on the summer section.\nAt any time, You can find all the supported features in the menu below.",
+    "prompt": "Thanks for visiting our store, be sure to check out all the great styles we have on the summer section. At any time, You can find all the supported features in the menu below."
   },
   "fallback": {
     "any": "Sorry, but I don’t recognize \"{{message}}\".",
