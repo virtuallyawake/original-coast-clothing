@@ -193,18 +193,18 @@ module.exports = class Receive {
       response = Order.handlePayload(payload);
     } else if (payload.includes("CSAT")) {
       response = Survey.handlePayload(payload);
-    } else if (payload.includes("OCWEBSITE-CHAT-PLUGIN")) {
+    } else if (payload.includes("CHAT-PLUGIN")) {
       response = [
-	Response.genText(i18n.__("chat_plugin.prompt")),
+        Response.genText(i18n.__("chat_plugin.prompt")),
         Response.genText(i18n.__("get_started.guidance")),
         Response.genQuickReply(i18n.__("get_started.help"), [
           {
-            title: i18n.__("menu.suggestion"),
-            payload: "CURATION"
+            title: i18n.__("care.order"),
+            payload: "CARE_ORDER"
           },
           {
-            title: i18n.__("order.account"),
-            payload: "LINK_ORDER"
+            title: i18n.__("care.billing"),
+            payload: "CARE_BILLING"
           },
           {
             title: i18n.__("menu.help"),
@@ -212,7 +212,6 @@ module.exports = class Receive {
           }
         ])
       ];
-
     } else {
       response = {
         text: `This is a default postback message for payload: ${payload}!`
