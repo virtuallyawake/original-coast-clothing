@@ -200,7 +200,7 @@ module.exports = class Receive {
       response = [
         Response.genText(
           i18n.__("fallback.any", {
-            message: this.webhookEvent.message.text
+            message: payload
           })
         ),
         Response.genText(i18n.__("get_started.guidance")),
